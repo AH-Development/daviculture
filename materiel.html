@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matériel d'élevage – Daviculture, Vincent Dabe à Spy (Belgique)</title>
+  <meta name="description" content="Petit matériel d'élevage chez Daviculture à Spy : abreuvoirs, mangeoires, volières modulables et location de piège à rats électrique.">
+
+  <!-- Open Graph (aperçu lors d'un partage sur Facebook, WhatsApp, etc.) -->
+  <!-- TODO : remplacer les chemins relatifs par des URL absolues une fois le nom de domaine du site connu -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:site_name" content="Daviculture">
+  <meta property="og:title" content="Matériel d'élevage – Daviculture">
+  <meta property="og:description" content="Abreuvoirs, mangeoires, volières et location de piège à rats électrique.">
+  <meta property="og:image" content="img/voliere.jpg">
+  <!-- TODO : ajouter <meta property="og:url"> et <link rel="canonical"> avec l'URL définitive de la page -->
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Lien d'évitement pour la navigation au clavier -->
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE (identique sur toutes les pages) ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Daviculture Natur – retour à l'accueil">
+        <img src="img/logo.jpg" alt="Logo Daviculture Natur Farm Spy : coq orange, vente de volaille" width="2048" height="1648" class="brand-logo">
+        <span class="brand-name">DaViculture Natur</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Ouvrir le menu</span>
+      </button>
+
+      <nav class="site-nav" id="menu-principal" aria-label="Menu principal">
+        <ul class="nav-list">
+          <!-- Sur chaque page, placer aria-current="page" sur le lien de la page courante -->
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="volailles.html">Volailles</a></li>
+          <li><a href="alimentation.html">Alimentation</a></li>
+          <li><a href="materiel.html" aria-current="page">Matériel</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ BANDEAU ============ -->
+    <section class="page-intro" aria-labelledby="titre-page">
+      <div class="container">
+        <h1 id="titre-page">Matériel</h1>
+      </div>
+    </section>
+
+    <!-- ============ GRILLE DES PRODUITS ============
+         Produit sans photo : .card-media--logo. Sans description : pas de <p>.
+         Étiquette sur l'image : <span class="card-badge">…</span> dans .card-media.
+    -->
+    <section class="section" aria-label="Liste du matériel">
+      <div class="container">
+        <ul class="card-grid">
+
+          <!-- Abreuvoir (pas de photo, pas de description) -->
+          <li>
+            <article class="card">
+              <div class="card-media card-media--logo">
+                <!-- TODO : ajouter une photo du produit quand elle sera disponible -->
+                <img src="img/logo.jpg" alt="Logo Daviculture, pas de photo disponible pour ce produit" width="2048" height="1648" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Abreuvoir</h2>
+                <!-- TODO : description à fournir (aucun texte affiché en attendant) -->
+              </div>
+            </article>
+          </li>
+
+          <!-- Mangeoire (pas de photo, pas de description) -->
+          <li>
+            <article class="card">
+              <div class="card-media card-media--logo">
+                <!-- TODO : ajouter une photo du produit quand elle sera disponible -->
+                <img src="img/logo.jpg" alt="Logo Daviculture, pas de photo disponible pour ce produit" width="2048" height="1648" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Mangeoire</h2>
+                <!-- TODO : description à fournir (aucun texte affiché en attendant) -->
+              </div>
+            </article>
+          </li>
+
+          <!-- Volière -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/voliere.jpg" alt="Grande volière à armature métallique, grillagée et couverte d'une bâche, avec des poules à l'intérieur" width="2048" height="1536" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Volière</h2>
+                <p>Volière à partir de 3&nbsp;m × 2&nbsp;m, avec extension possible par modules de 2&nbsp;m en longueur.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- Location de piège à rats électrique (pas de photo, badge « Location ») -->
+          <li>
+            <article class="card">
+              <div class="card-media card-media--logo">
+                <!-- TODO : ajouter une photo du produit quand elle sera disponible -->
+                <img src="img/logo.jpg" alt="Logo Daviculture, pas de photo disponible pour ce produit" width="2048" height="1648" loading="lazy" decoding="async">
+                <span class="card-badge">Location</span>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Location de piège à rats électrique</h2>
+                <p>Peut tuer jusqu'à 25 rats par cycle et se réarme automatiquement toutes les 3 minutes.</p>
+              </div>
+            </article>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ APPEL À L'ACTION ============ -->
+    <section class="section section-alt" aria-labelledby="titre-contact">
+      <div class="container narrow cta-block">
+        <h2 id="titre-contact">Contact</h2>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="tel:+32490489203"><span aria-hidden="true">📞</span> Appeler</a>
+          <a class="btn btn-secondary" href="mailto:vincent@daviculture.be"><span aria-hidden="true">✉️</span> Envoyer un mail</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ PIED DE PAGE (identique sur toutes les pages) ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Informations légales</strong> : BE0718433468</p>
+      <p>&copy; <span id="annee">2026</span> Daviculture – Vincent Dabe</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

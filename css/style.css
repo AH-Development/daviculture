@@ -1,0 +1,847 @@
+/* ==========================================================================
+   Daviculture – feuille de style commune à toutes les pages
+   Approche mobile-first : styles de base pour téléphone, puis media queries
+   pour les écrans plus larges.
+   ========================================================================== */
+
+/* ---------- 1. Variables (couleurs, typographie, espacements) ---------- */
+:root {
+  /* Palette Daviculture (3 couleurs de base + teintes dérivées) */
+  --creme: #F4F1E4;           /* fond de page, header (même fond que le logo) */
+  --orange: #D55712;          /* couleur du coq : bouton principal, accents */
+  --terre: #D3926B;           /* bouton secondaire, bordures */
+  --orange-fonce: #A8420C;    /* liens et survols (meilleur contraste sur crème) */
+  --terre-fonce: #C07A50;     /* survol du bouton secondaire */
+  --sable: #ECD9C6;           /* sections alternées (terre éclaircie) */
+  --sable-fonce: #E7CBB4;     /* fonds légers, jour actuel */
+  --brun: #3B2A1F;            /* titres, footer */
+  --texte: #2B2A26;           /* texte courant */
+  --texte-doux: #5E5249;
+  --blanc: #ffffff;
+  --focus: #3B2A1F;           /* contour de focus bien visible */
+
+  /* Typographie : polices système (aucun téléchargement) */
+  --font-texte: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-titre: Georgia, "Times New Roman", serif;
+
+  /* Mise en page */
+  --largeur-max: 1100px;
+  --rayon: 12px;
+  --ombre: 0 4px 16px rgba(59, 42, 31, 0.14);
+  --hauteur-header: 72px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Les ancres ne passent pas sous le header collant */
+  scroll-padding-top: calc(var(--hauteur-header) + 12px);
+}
+
+/* Respect des personnes sensibles aux animations */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-texte);
+  font-size: 1.125rem;          /* 18px : confortable sur téléphone */
+  line-height: 1.65;
+  color: var(--texte);
+  background: var(--creme);
+}
+
+img,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-titre);
+  color: var(--brun);
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+h1 { font-size: 1.85rem; }
+h2 { font-size: 1.6rem; }
+
+p { margin: 0 0 1rem; }
+
+a {
+  color: var(--orange-fonce);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--brun);
+}
+
+/* Focus clavier très visible sur tous les éléments interactifs */
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- 3. Utilitaires ---------- */
+.container {
+  width: 100%;
+  max-width: var(--largeur-max);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.narrow {
+  max-width: 760px;
+}
+
+/* Texte lu par les lecteurs d'écran mais invisible à l'écran */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--brun);
+  color: var(--blanc);
+  border-radius: var(--rayon);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  color: var(--blanc);
+}
+
+/* ---------- 4. Boutons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 56px;              /* grande zone tactile */
+  padding: 0.9rem 1.6rem;
+  font-size: 1.2rem;             /* texte large et gras : contraste suffisant sur l'orange */
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--orange);
+  color: var(--blanc);
+}
+
+.btn-primary:hover {
+  background: var(--orange-fonce);
+  color: var(--blanc);
+}
+
+.btn-secondary {
+  background: var(--terre);
+  color: var(--brun);
+}
+
+.btn-secondary:hover {
+  background: var(--terre-fonce);
+  color: var(--brun);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--brun);
+  border-color: var(--orange);
+}
+
+.btn-outline:hover {
+  background: var(--orange);
+  color: var(--blanc);
+}
+
+.cta-group {
+  display: flex;
+  flex-direction: column;        /* boutons empilés et pleine largeur sur mobile */
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* ---------- 5. En-tête et navigation ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--creme);
+  border-bottom: 4px solid var(--orange);
+  box-shadow: 0 2px 8px rgba(59, 42, 31, 0.12);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--hauteur-header);
+  gap: 1rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--brun);
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: var(--orange-fonce);
+}
+
+.brand-logo {
+  width: auto;
+  height: 52px;
+  border-radius: 8px;
+}
+
+.brand-name {
+  font-family: var(--font-titre);
+  font-size: clamp(1.5rem, 6vw, 2rem);  /* grandit avec l'écran, sans déborder sur mobile */
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Bouton burger (mobile) */
+.nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid var(--terre);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Les trois barres du burger : une barre + ::before + ::after */
+.nav-toggle-bar,
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: var(--brun);
+  border-radius: 2px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.nav-toggle-bar {
+  position: relative;
+}
+
+.nav-toggle-bar::before,
+.nav-toggle-bar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.nav-toggle-bar::before { top: -8px; }
+.nav-toggle-bar::after  { top: 8px; }
+
+/* Burger transformé en croix quand le menu est ouvert */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar { background: transparent; }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::before { transform: translateY(8px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar::after  { transform: translateY(-8px) rotate(-45deg); }
+
+/* Menu : caché par défaut sur mobile, affiché via la classe .is-open */
+.site-nav {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--creme);
+  border-bottom: 4px solid var(--orange);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.site-nav.is-open {
+  display: block;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 1rem 1rem;
+}
+
+.nav-list a {
+  display: block;
+  padding: 0.85rem 0.5rem;
+  color: var(--brun);
+  font-size: 1.15rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--sable);
+}
+
+.nav-list a:hover,
+.nav-list a[aria-current="page"] {
+  color: var(--orange-fonce);
+}
+
+.nav-list a[aria-current="page"] {
+  font-weight: 700;
+}
+
+/* ---------- 6. Accueil (hero) ---------- */
+.hero {
+  padding: 2rem 0 3rem;
+  background: linear-gradient(180deg, var(--sable-fonce) 0%, var(--creme) 100%);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.lead {
+  font-size: 1.15rem;
+}
+
+.hero-photo {
+  margin: 0;
+  max-width: 340px;
+  justify-self: center;
+}
+
+.hero-photo img {
+  width: 100%;
+  border-radius: var(--rayon);
+  border: 6px solid var(--blanc);
+  box-shadow: var(--ombre);
+}
+
+/* Vidéo verticale : largeur limitée pour rester lisible */
+.video-wrap {
+  max-width: 360px;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.video-title {
+  font-size: 1.35rem;
+}
+
+.video-wrap video {
+  width: 100%;
+  background: #000;
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+}
+
+/* ---------- 7. Sections génériques ---------- */
+.section {
+  padding: 3rem 0;
+}
+
+.section-alt {
+  background: var(--sable);
+}
+
+/* ---------- 8. Horaires ---------- */
+.hours {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  overflow: hidden;
+}
+
+.hours-row {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.25rem;
+  border-left: 6px solid transparent;
+}
+
+.hours-row + .hours-row {
+  border-top: 1px solid var(--sable);
+}
+
+.hours-day {
+  font-weight: 700;
+  color: var(--brun);
+}
+
+.hours-closed .hours-time {
+  color: var(--texte-doux);
+}
+
+/* Jour actuel, surligné par script.js */
+.hours-row.is-today {
+  background: var(--sable-fonce);
+  border-left-color: var(--orange);
+}
+
+.hours-row.is-today .hours-day::after {
+  content: " – aujourd'hui";
+  font-weight: 400;
+  color: var(--orange-fonce);
+}
+
+/* ---------- 9. Adresse et carte ---------- */
+.address {
+  font-style: normal;
+  font-size: 1.2rem;
+  margin-bottom: 1.25rem;
+}
+
+.map {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin-bottom: 1.25rem;
+  border-radius: var(--rayon);
+  overflow: hidden;
+  box-shadow: var(--ombre);
+  background: var(--sable-fonce);
+}
+
+.map iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ---------- 10. Contact ---------- */
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid rgba(59, 42, 31, 0.15);
+}
+
+.contact-label {
+  font-size: 0.95rem;
+  color: var(--texte-doux);
+}
+
+.contact-list a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  word-break: break-word;
+}
+
+/* ---------- 11. Pied de page ---------- */
+.site-footer {
+  padding: 2rem 0;
+  background: var(--brun);
+  color: var(--creme);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.footer-inner p {
+  margin: 0.25rem 0;
+}
+
+/* ---------- 12. Introduction des pages intérieures ---------- */
+.page-intro {
+  padding: 2rem 0 1rem;
+  background: linear-gradient(180deg, var(--sable-fonce) 0%, var(--creme) 100%);
+}
+
+.page-intro .lead {
+  max-width: 46rem;
+}
+
+/* ---------- 13. Grille de cartes produits (réutilisable) ---------- */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;    /* 1 colonne sur mobile, 2 puis 3 plus bas */
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(59, 42, 31, 0.18);
+}
+
+/* Contour visible quand un élément de la carte (bouton du carrousel) a le focus clavier */
+.card:has(:focus-visible) {
+  box-shadow: 0 0 0 3px var(--orange), var(--ombre);
+}
+
+/* Zone image : ratio uniforme pour toutes les cartes */
+.card-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--sable);
+  overflow: hidden;
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Variante pour photos verticales (sacs d'aliments…) : ratio 3/4 */
+.card-grid--portrait .card-media {
+  aspect-ratio: 3 / 4;
+}
+
+/* Photo verticale : cadrer le haut de l'image */
+.card-media img.img-top {
+  object-position: 50% 0;
+}
+
+/* Carte sans photo : logo centré, entier, sur fond neutre */
+.card-media--logo {
+  background: var(--creme);      /* même fond que le logo */
+}
+
+.card-media--logo img {
+  object-fit: contain;
+  padding: 1.5rem;
+}
+
+/* Étiquette posée sur l'image (ex. « Location ») */
+.card-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.35rem 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blanc);
+  background: var(--orange-fonce);   /* contraste suffisant avec le texte blanc */
+  border: 2px solid var(--creme);
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  margin: 0;
+}
+
+/* ---------- 14. Carrousel d'images (réutilisable, piloté par js/script.js) ---------- */
+.carousel {
+  position: relative;
+  height: 100%;
+}
+
+/* Piste défilable : le swipe au doigt utilise le défilement natif + scroll-snap */
+.carousel-track {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+}
+
+/* Barre de défilement masquée seulement quand les flèches sont présentes (JS actif) */
+.carousel.is-ready .carousel-track {
+  scrollbar-width: none;
+}
+
+.carousel.is-ready .carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  margin: 0;
+  scroll-snap-align: start;
+}
+
+/* Flèches précédent / suivant : 48 px de zone tactile */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--brun);
+  background: rgba(244, 241, 228, 0.92);
+  border: 2px solid var(--terre);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.carousel-btn:hover {
+  background: var(--orange);
+  color: var(--blanc);
+}
+
+.carousel-prev { left: 0.5rem; }
+.carousel-next { right: 0.5rem; }
+
+/* Points de navigation : pastille de 14 px dans une zone tactile de 44 px */
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-dot {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.carousel-dot::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  margin: auto;
+  background: var(--creme);
+  border: 2px solid var(--brun);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.carousel-dot[aria-current="true"]::before {
+  background: var(--orange);
+  border-color: var(--creme);
+  transform: scale(1.2);
+}
+
+.carousel-dot:focus-visible {
+  outline-offset: -6px;
+}
+
+/* ---------- 14 bis. Bon à savoir (infographies affichées en entier) ---------- */
+.tips-title,
+.tips-grid {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.tip {
+  margin: 0;
+  background: var(--blanc);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  overflow: hidden;
+}
+
+.tip a {
+  display: block;
+}
+
+.tip img {
+  width: 100%;
+  transition: opacity 0.2s;
+}
+
+.tip a:hover img {
+  opacity: 0.9;
+}
+
+.tip figcaption {
+  padding: 0.9rem 1.25rem;
+  font-family: var(--font-titre);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--brun);
+}
+
+/* ---------- 15. Bloc d'appel à l'action ---------- */
+.cta-block {
+  text-align: center;
+}
+
+.cta-block .cta-group {
+  justify-content: center;
+}
+
+/* ==========================================================================
+   Tablettes (≥ 600px)
+   ========================================================================== */
+@media (min-width: 600px) {
+  h1 { font-size: 2.2rem; }
+
+  .cta-group {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .hours-row {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .hours-time {
+    text-align: right;
+  }
+
+  .contact-list li {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .contact-label {
+    min-width: 7rem;
+  }
+
+  .map {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   Ordinateurs (≥ 960px) : menu horizontal, hero sur deux colonnes
+   ========================================================================== */
+@media (min-width: 960px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .site-nav {
+    display: block;
+    position: static;
+    background: none;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0;
+  }
+
+  .nav-list a {
+    padding: 0.5rem 0.7rem;
+    font-size: 1.05rem;
+    border-bottom: 0;
+    border-radius: 8px;
+  }
+
+  .nav-list a:hover {
+    background: var(--sable);
+  }
+
+  .hero {
+    padding: 3.5rem 0 4rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.6fr 1fr;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+
+  .page-intro {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}

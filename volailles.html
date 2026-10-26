@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nos volailles – Daviculture, Vincent Dabe à Spy (Belgique)</title>
+  <meta name="description" content="Poules pondeuses, poules aux œufs colorés, de pure race et d'ornement, canards, oies, cailles, pintades, dindes, œufs et incubation chez Daviculture à Spy (Belgique).">
+
+  <!-- Open Graph (aperçu lors d'un partage sur Facebook, WhatsApp, etc.) -->
+  <!-- TODO : remplacer les chemins relatifs par des URL absolues une fois le nom de domaine du site connu -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_BE">
+  <meta property="og:site_name" content="Daviculture">
+  <meta property="og:title" content="Nos volailles – Daviculture">
+  <meta property="og:description" content="Découvrez les volailles disponibles chez Vincent Dabe à Spy : poules, canards, oies, cailles et plus encore.">
+  <meta property="og:image" content="img/poule_pondeuse_1.jpg">
+  <!-- TODO : ajouter <meta property="og:url"> et <link rel="canonical"> avec l'URL définitive de la page -->
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Lien d'évitement pour la navigation au clavier -->
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ============ EN-TÊTE (identique sur toutes les pages) ============ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Daviculture Natur – retour à l'accueil">
+        <img src="img/logo.jpg" alt="Logo Daviculture Natur Farm Spy : coq orange, vente de volaille" width="2048" height="1648" class="brand-logo">
+        <span class="brand-name">DaViculture Natur</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Ouvrir le menu</span>
+      </button>
+
+      <nav class="site-nav" id="menu-principal" aria-label="Menu principal">
+        <ul class="nav-list">
+          <!-- Sur chaque page, placer aria-current="page" sur le lien de la page courante -->
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="volailles.html" aria-current="page">Volailles</a></li>
+          <li><a href="alimentation.html">Alimentation</a></li>
+          <li><a href="materiel.html">Matériel</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ============ INTRODUCTION ============ -->
+    <section class="page-intro" aria-labelledby="titre-page">
+      <div class="container">
+        <h1 id="titre-page">Nos volailles</h1>
+        <p class="lead">Découvrez les volailles disponibles. Pour toute question, disponibilité ou réservation, contactez-moi par téléphone ou par mail.</p>
+      </div>
+    </section>
+
+    <!-- ============ GRILLE DES PRODUITS ============
+         Trois variantes de carte :
+         - une image      : <div class="card-media"><img …></div>
+         - plusieurs      : <div class="card-media"><div class="carousel" data-carousel …> (voir js/script.js)
+         - aucune image   : <div class="card-media card-media--logo"><img src="img/logo.jpg" …></div>
+    -->
+    <section class="section" aria-label="Liste des volailles">
+      <div class="container">
+        <ul class="card-grid">
+
+          <!-- 1. Poules pondeuses -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/poule_pondeuse_1.jpg" alt="Groupe de poules pondeuses rousses, blanches et grises dans un poulailler paillé" width="2048" height="1536" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Poules pondeuses</h2>
+                <p>Rousse, Harco, Bleu des Landes, Coucou, Sussex, Leghorn blanche.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 2. Poules aux œufs colorés (carrousel) -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <div class="carousel" data-carousel aria-label="Photos : poules aux œufs colorés">
+                  <div class="carousel-track">
+                    <figure class="carousel-slide">
+                      <img src="img/oeuf_colors_1.jpg" alt="Coq et poule noirs aux reflets cuivrés dans l'herbe, devant un grillage" width="2048" height="1365" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/oeuf_colors_2.jpg" alt="Poule blanche à la queue touffue sur l'herbe" width="1080" height="931" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/oeuf_colors_3.jpg" alt="Deux jeunes poules, l'une grise, l'autre fauve" width="2048" height="1099" loading="lazy" decoding="async">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Poules aux œufs colorés</h2>
+                <p>Araucana, Azur, Marans. Sous réserve de disponibilité.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 3. Poules de pure race (carrousel) -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <div class="carousel" data-carousel aria-label="Photos : poules de pure race">
+                  <div class="carousel-track">
+                    <figure class="carousel-slide">
+                      <img src="img/pure_race_1.jpg" alt="Poules et coq noirs mouchetés de blanc, à crête rouge, dans une cour en terre" width="2048" height="1496" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/pur_race_2.jpg" alt="Poules au plumage acajou, foncé et clair, picorant au sol" width="2048" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/pure_race_3.jpg" class="img-top" alt="Poule au plumage noir et acajou à crête rouge, avec une poule noire derrière elle" width="1536" height="2048" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/pure_race_4.jpg" alt="Poules au plumage noir et acajou réunies autour d'une mangeoire verte, vues d'en haut" width="1536" height="2048" loading="lazy" decoding="async">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Poules de pure race</h2>
+                <p>Barnevelder noir acajou, Barnevelder bleu acajou, Barnevelder blanc acajou, Leghorn dorée, Ancôme, Brahma.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 4. Poules d'ornement (carrousel) -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <div class="carousel" data-carousel aria-label="Photos : poules d'ornement">
+                  <div class="carousel-track">
+                    <figure class="carousel-slide">
+                      <img src="img/poule_ornement_1.jpg" alt="Deux poules huppées blanches tachetées de noir près d'un grillage" width="2048" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/poule_ornement_2.jpg" alt="Poules d'ornement de plusieurs couleurs réunies dans un enclos" width="2048" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/poule_ornement_3.jpg" alt="Nombreuses petites poules d'ornement, certaines huppées, dans un enclos paillé" width="2048" height="1536" loading="lazy" decoding="async">
+                    </figure>
+                    <figure class="carousel-slide">
+                      <img src="img/poule_ornement_4.jpg" class="img-top" alt="Coq au plumage doré, roux et noir aux reflets verts, marchant dans une cour" width="1612" height="2047" loading="lazy" decoding="async">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Poules d'ornement</h2>
+                <p>Appenzelloise, Soie, Pékin lisse, Pékin frisé, Braekel, Amrock barré, Wyandotte naine, Padoue, Hollandaise huppée.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 5. Coqs d'engraissement (pas de photo : logo) -->
+          <li>
+            <article class="card">
+              <div class="card-media card-media--logo">
+                <!-- TODO : ajouter une photo du coq d'engraissement quand elle sera disponible -->
+                <img src="img/logo.jpg" alt="Logo Daviculture, pas de photo disponible pour ce produit" width="2048" height="1648" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Coqs d'engraissement</h2>
+                <p>Cou-nu, Coucou, Kabir.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 6. Pintades (pas de photo, pas de description) -->
+          <li>
+            <article class="card">
+              <div class="card-media card-media--logo">
+                <!-- TODO : ajouter une photo de pintade quand elle sera disponible -->
+                <img src="img/logo.jpg" alt="Logo Daviculture, pas de photo disponible pour ce produit" width="2048" height="1648" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Pintades</h2>
+                <!-- TODO : description à fournir -->
+                <p>Informations et disponibilités sur demande.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 7. Dindes (pas de photo, pas de description) -->
+          <li>
+            <article class="card">
+              <div class="card-media card-media--logo">
+                <!-- TODO : ajouter une photo de dinde quand elle sera disponible -->
+                <img src="img/logo.jpg" alt="Logo Daviculture, pas de photo disponible pour ce produit" width="2048" height="1648" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Dindes</h2>
+                <!-- TODO : description à fournir -->
+                <p>Informations et disponibilités sur demande.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 8. Canards coureurs indiens -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/coureurs_indien.jpg" alt="Groupe de canards coureurs indiens au port dressé, au plumage panaché brun, blanc et colvert" width="2048" height="1199" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Canards coureurs indiens</h2>
+                <p>Panachés. Très grands mangeurs de limaces, idéals autour des jardins. Ponte moyenne.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 9. Canards de Barbarie lavande -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/barbari.jpg" alt="Canard de Barbarie au plumage gris lavande clair" width="2048" height="1557" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Canards de Barbarie lavande</h2>
+                <p>Canards d'élevage pour la consommation, bonnes pondeuses.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 10. Oies frisées du Danube (pas de description) -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <!-- Photo verticale : cadrage en haut pour garder les têtes visibles -->
+                <img src="img/oie_danube.jpg" class="img-top" alt="Deux oies blanches aux plumes frisées dans une cour" width="1536" height="2048" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Oies frisées du Danube</h2>
+                <!-- TODO : description à fournir -->
+                <p>Informations et disponibilités sur demande.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 11. Cailles Jumbo du Japon -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/caille_jumbo.jpg" alt="Caille au plumage brun tacheté posée sur de la paille" width="2048" height="1346" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Cailles Jumbo du Japon</h2>
+                <p>Pour la ponte et la consommation. Œufs très riches en protéines.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 12. Œufs pour incubation -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/oeuf_incubation.jpg" alt="Plateau de couveuse rempli d'œufs blancs et bruns alignés en rangées" width="1536" height="2048" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Œufs pour incubation</h2>
+                <p>Sur demande.</p>
+              </div>
+            </article>
+          </li>
+
+          <!-- 13. Incubation d'œufs -->
+          <li>
+            <article class="card">
+              <div class="card-media">
+                <img src="img/incubation.jpg" alt="Couveuse ouverte avec plusieurs rangées d'œufs numérotés sur des plateaux" width="1962" height="2048" loading="lazy" decoding="async">
+              </div>
+              <div class="card-body">
+                <h2 class="card-title">Incubation d'œufs</h2>
+                <p>J'assure l'incubation d'œufs de poules, de pondeuses, de canards et d'oies pour faire naître des poussins, des canetons et des oisons.</p>
+              </div>
+            </article>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ APPEL À L'ACTION ============ -->
+    <section class="section section-alt" aria-labelledby="titre-contact">
+      <div class="container narrow cta-block">
+        <h2 id="titre-contact">Contact</h2>
+        <div class="cta-group">
+          <a class="btn btn-primary" href="tel:+32490489203"><span aria-hidden="true">📞</span> Appeler</a>
+          <a class="btn btn-secondary" href="mailto:vincent@daviculture.be"><span aria-hidden="true">✉️</span> Envoyer un mail</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ PIED DE PAGE (identique sur toutes les pages) ============ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p><strong>Informations légales</strong> : BE0718433468</p>
+      <p>&copy; <span id="annee">2026</span> Daviculture – Vincent Dabe</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
