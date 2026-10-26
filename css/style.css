@@ -157,8 +157,10 @@ a:hover {
   transition: background-color 0.2s, color 0.2s, transform 0.2s;
 }
 
-.btn:hover {
-  transform: translateY(-2px);
+@media (hover: hover) {
+  .btn:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .btn-primary {
@@ -244,6 +246,7 @@ a:hover {
 
 /* Bouton burger (mobile) */
 .nav-toggle {
+  flex-shrink: 0;                /* garde ses 52 px même sur très petit écran */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -498,6 +501,11 @@ a:hover {
   max-width: 46rem;
 }
 
+/* Évite un double espacement entre le bandeau et la grille qui suit */
+.page-intro + .section {
+  padding-top: 1.5rem;
+}
+
 /* ---------- 13. Grille de cartes produits (réutilisable) ---------- */
 .card-grid {
   display: grid;
@@ -519,9 +527,12 @@ a:hover {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(59, 42, 31, 0.18);
+/* Effet de survol réservé aux appareils avec souris (évite l'effet « bloqué » après un toucher) */
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(59, 42, 31, 0.18);
+  }
 }
 
 /* Contour visible quand un élément de la carte (bouton du carrousel) a le focus clavier */
